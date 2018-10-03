@@ -1,4 +1,5 @@
 # 13 Мария Карпиеня
+# 13 Мария Карпиеня
 
 #task 1
 
@@ -90,8 +91,33 @@ tab <- data.frame (text = str, usl = flag, num = v, fact = we)
 tab
 tab [tab$num > tab$fact, 1 ]
 
-#task5
+#task5 6v
 
+temp <- matrix(sample (c (1,2,3)), ncol = 3, nrow=13)
+temp
+n <- 13
+v <- c(1:13)
+res <- 0
 
+# with for
+for (i in v)
+{
+  res = res + (temp[i,1] + temp[i,2]+(temp[i,3])^2) * (temp[n-i+1,3]+temp[n-i+1,2]+ (temp[n-i+1,1])^2) 
+}
+res
 
+#without for
+temp1 <- temp
+temp1[, 3] <- temp[, 3]*temp[, 3]
+vt1 <-rowSums(temp1)
+vt1
 
+temp2 <- temp
+temp2[, 1] <- temp[, 1]*temp[, 1]
+vt2 <- rowSums(temp2)
+vt2<- rev(vt2)
+vt2
+
+vt3 <- vt1*vt2
+
+sum(vt3)
